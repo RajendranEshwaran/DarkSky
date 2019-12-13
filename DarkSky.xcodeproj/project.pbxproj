@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9712B75523A2E76E0064EAB3 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9712B75423A2E76E0064EAB3 /* CurrentWeatherViewModel.swift */; };
+		9712B75723A40EC60064EAB3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9712B75623A40EC60064EAB3 /* MapViewController.swift */; };
+		9712B75923A418C60064EAB3 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9712B75823A418C60064EAB3 /* DayViewController.swift */; };
 		97D6433C23A1C81900C41A2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6433B23A1C81900C41A2D /* AppDelegate.swift */; };
 		97D6433E23A1C81900C41A2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6433D23A1C81900C41A2D /* SceneDelegate.swift */; };
 		97D6434023A1C81900C41A2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6433F23A1C81900C41A2D /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		9712B75423A2E76E0064EAB3 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		9712B75623A40EC60064EAB3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9712B75823A418C60064EAB3 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		97D6433823A1C81900C41A2D /* DarkSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarkSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D6433B23A1C81900C41A2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D6433D23A1C81900C41A2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				97D6433F23A1C81900C41A2D /* ViewController.swift */,
+				9712B75623A40EC60064EAB3 /* MapViewController.swift */,
+				9712B75823A418C60064EAB3 /* DayViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +187,8 @@
 				97D6435523A295C800C41A2D /* CurrentWeatherFetch.swift in Sources */,
 				97D6435323A290CC00C41A2D /* CurrentWeaterModel.swift in Sources */,
 				9712B75523A2E76E0064EAB3 /* CurrentWeatherViewModel.swift in Sources */,
+				9712B75723A40EC60064EAB3 /* MapViewController.swift in Sources */,
+				9712B75923A418C60064EAB3 /* DayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -109,23 +109,40 @@
         <!--Map-->
         <scene sceneID="ypj-j3-cgl">
             <objects>
-                <viewController id="mBt-fv-s5E" sceneMemberID="viewController">
+                <viewController id="mBt-fv-s5E" customClass="MapViewController" customModule="DarkSky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BW9-xI-twT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sQu-Nd-1wV">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQu-Nd-1wV">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="q6L-0F-vnC"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Current Location" id="2Zg-BZ-3vr"/>
                                 </items>
                             </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AL5-Cg-fCy">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sQu-Nd-1wV" firstAttribute="trailing" secondItem="MIW-bZ-R9C" secondAttribute="trailing" id="6V7-m7-IMa"/>
+                            <constraint firstItem="AL5-Cg-fCy" firstAttribute="leading" secondItem="MIW-bZ-R9C" secondAttribute="leading" id="IGQ-1J-uQt"/>
+                            <constraint firstItem="sQu-Nd-1wV" firstAttribute="leading" secondItem="MIW-bZ-R9C" secondAttribute="leading" id="L1I-y1-99n"/>
+                            <constraint firstItem="AL5-Cg-fCy" firstAttribute="top" secondItem="sQu-Nd-1wV" secondAttribute="bottom" id="QvH-1Q-2wz"/>
+                            <constraint firstItem="AL5-Cg-fCy" firstAttribute="trailing" secondItem="MIW-bZ-R9C" secondAttribute="trailing" id="YTE-Iq-6Gd"/>
+                            <constraint firstItem="sQu-Nd-1wV" firstAttribute="top" secondItem="MIW-bZ-R9C" secondAttribute="top" id="k5F-QC-TfS"/>
+                            <constraint firstItem="MIW-bZ-R9C" firstAttribute="bottom" secondItem="AL5-Cg-fCy" secondAttribute="bottom" id="xfw-ol-k7M"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MIW-bZ-R9C"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="Z6m-ol-Aug"/>
+                    <connections>
+                        <outlet property="mapView" destination="AL5-Cg-fCy" id="ylf-UW-JUy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jM-ts-GaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

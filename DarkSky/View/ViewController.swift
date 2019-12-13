@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 
+
 class ViewController: UIViewController , CLLocationManagerDelegate{
 
     @IBOutlet weak var locationLbl: UILabel!
@@ -30,12 +31,12 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
     
     var weatherModel = [String : CurrentWeatherModel]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         getUserCurrentLocation()
-        
     }
 
 // Steps : Location manager set for getting user current location
@@ -62,6 +63,7 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
                 
         fetch(location: location)
     
+       
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
