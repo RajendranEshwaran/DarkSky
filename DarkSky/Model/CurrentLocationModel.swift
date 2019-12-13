@@ -10,13 +10,14 @@ import Foundation
 
 class CurrentLocationModel{
     
-    let latitude : Double = 0.0
-    let longtitude : Double = 0.0
+    var latitude : Double = 0.0
+    var longtitude : Double = 0.0
 
-}
-
-extension CurrentLocationModel : CustomStringConvertible {
-    var description : String{
-        return "\(String(describing: latitude)),\(String(describing: longtitude))"
+    
+    init(lat:Double , long:Double) {
+        self.latitude = lat
+        self.longtitude = long
     }
 }
+
+

@@ -9,8 +9,8 @@
 import Foundation
 
 struct Key {
-    static let temprature = "temprature"
-    static let precipitationProb = "precipitationProb"
+    static let temprature = "temperature"
+    static let precipitationProb = "precipProbability"
     static let humidity = "humidity"
     static let summary = "summary"
     static let icon = "icon"

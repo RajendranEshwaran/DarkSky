@@ -9,76 +9,111 @@
 import Foundation
 import CoreLocation
 
-struct CurrentWeatherFetch{
+class CurrentWeatherFetch{
+    //https://api.darksky.net/forecast/8b9d50ba3d44a7d54d8aa6c084e76957/37.785834,-122.406417
     
-    let summary:String
-    let icon:String
-    let temprature:Double
+   
     
-    
-    enum SerializationError:Error{
-        case missing(String)
-        case invalid(String,Any)
+    /*func getWeather(location:CurrentLocationModel ) {
         
-    }
-    
-    init(json:[String:Any]) throws {
+        // This is a pretty simple networking task, so the shared session will do.
+    let session = URLSession.shared
+    let location = "\(location.latitude),\(location.longtitude)"
+      
+        guard let url = URL(string: BaseURL + APIKey + location) else { return }
         
-        guard let summary = json["summary"] as? String else {throw SerializationError.missing("summary is missing")}
-        
-        guard let icon = json["icon"] as? String else {throw SerializationError.missing("icon is missing")}
-        
-        guard let temperature = json["temperatureMax"] as? Double else {throw SerializationError.missing("temp is missing")}
-        
-        self.summary = summary
-        self.icon = icon
-        self.temprature = temperature
-    }
-    
-    static let basePath = "https://api.darksky.net/forecast/8b9d50ba3d44a7d54d8aa6c084e76957/"
+        let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
 
-    
-    static func forecast (withLocation location:CLLocationCoordinate2D, completion: @escaping ([CurrentWeatherFetch]?) -> ()) {
-        
-        let url = basePath + "\(location.latitude),\(location.longitude)"
-        let request = URLRequest(url: URL(string: url)!)
-        
-        let task = URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
+             var information: CurrentWeatherModel
             
-            var forecastArray:[CurrentWeatherFetch] = []
-            
-            if let data = data {
-                
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                        if let dailyForecasts = json["currently"] as? [String:Any] {
-                            
-                            if let weatherObject = try? CurrentWeatherFetch(json: dailyForecasts) {
-                                forecastArray.append(weatherObject)
-                            }
-                            
-                           /* if let dailyData = dailyForecasts["data"] as? [[String:Any]] {
-                                for dataPoint in dailyData {
-                                    if let weatherObject = try? CurrentWeatherFetch(json: dataPoint) {
-                                        forecastArray.append(weatherObject)
-                                    }
-                                }
-                            }*/
-                        }
-                    
-                    }
-                }catch {
-                    print(error.localizedDescription)
-                }
-                
-                completion(forecastArray)
-                
+            if let error = error {
+              // Case 1: Error
+              // We got some kind of error while trying to get data from the server.
+              print("Error:\n\(error)")
             }
-            
-            
+            else {
+              // Case 2: Success
+              // We got a response from the server!
+              print("Raw data:\n\(data!)\n")
+                let dataString = String(data: data!, encoding: String.Encoding.utf8)
+              print("Human-readable data:\n\(dataString!)")
+               
+                information.temprature = dataString
+            }
         }
-        
         task.resume()
+        }*/
+    
+    
+    static func fetch(location:CurrentLocationModel, completion: @escaping ([String: CurrentWeatherModel]) -> Void)
+    {
+        
+           let BaseURL  = "https://api.darksky.net/forecast/"
+           let APIKey = "8b9d50ba3d44a7d54d8aa6c084e76957/"
+           let currentweather = [String: CurrentWeatherModel]();
+
+        let location = "\(location.latitude),\(location.longtitude)"
+            
+        let url = URL(string: BaseURL + APIKey + location)
+        
+        URLSession.shared.dataTask(with:url!)
+            {
+                (data, _, error) in
+        
+                if error != nil
+                {
+                    print(error!);
+        
+                }
+                else
+                {
+                    do
+        
+                    {
+        
+                        let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any];
+        
+                        let dailyConditions = parsedData["daily"] as! [String:AnyObject];
+        
+                        let daysData = dailyConditions["data"] as! [AnyObject];
+        
+                        for case let dayData in daysData
+        
+                        {
+        
+                            let time = dayData["time"] as! Double;
+        
+                            let date = Date(timeIntervalSince1970: time);
+        
+                            let icon = dayData["icon"] as! String;
+        
+                            let summary = dayData["summary"] as! String;
+        
+                            let tempMin = dayData["temperatureMin"] as! Double;
+        
+                            let tempMax = dayData["temperatureMax"] as! Double;
+        
+//                            currentweather[date.dateOnlyString()] = currentweather(date:date, icon:icon, summary: summary, tempMin: tempMin, tempMax:tempMax);
+//
+                            print("\(time) \(date) \(summary) \(tempMax) \(tempMin)")
+                        }
+        
+                    }
+        
+                    catch let error as NSError
+        
+                    {
+        
+                        print(error);
+        
+                    }
+        
+                }
+    
+                completion(currentweather);
+        
+            }.resume()
+
+    }
     
     }
-}

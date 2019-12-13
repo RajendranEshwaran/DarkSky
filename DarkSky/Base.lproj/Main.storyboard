@@ -43,7 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzH-7t-5O8">
-                                <rect key="frame" x="108" y="286" width="197" height="170"/>
+                                <rect key="frame" x="108" y="286" width="188" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="EZF-xl-zPV"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nLB-ea-T1z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -65,7 +65,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Dze-gK-IP7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -84,7 +84,7 @@
                             <constraint firstItem="rp4-BY-sMn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="OiY-Jm-qcM"/>
                             <constraint firstItem="Q0O-Vh-AMW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WaK-U6-GEy"/>
                             <constraint firstItem="Q0O-Vh-AMW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X6Y-c3-PZk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fzH-7t-5O8" secondAttribute="trailing" constant="109" id="aJT-rS-H7f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fzH-7t-5O8" secondAttribute="trailing" constant="118" id="aJT-rS-H7f"/>
                             <constraint firstItem="Cqt-rL-Tdu" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ggm-1b-qEV"/>
                             <constraint firstItem="DS6-S6-HyE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="iFO-Vg-CNj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DS6-S6-HyE" secondAttribute="trailing" constant="32" id="kiQ-QS-uLn"/>
@@ -94,6 +94,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" id="0qQ-vH-oml"/>
+                    <connections>
+                        <outlet property="dateLbl" destination="Cqt-rL-Tdu" id="oaA-BP-bFR"/>
+                        <outlet property="locationLbl" destination="DS6-S6-HyE" id="tUQ-r5-s8P"/>
+                        <outlet property="statusLbl" destination="rp4-BY-sMn" id="eNm-Jl-p8o"/>
+                        <outlet property="tempLbl" destination="fzH-7t-5O8" id="OL4-dm-A69"/>
+                        <outlet property="timeLbl" destination="7lg-sU-iEJ" id="8dT-ZU-U1G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,6 +162,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5tp-mP-ZHb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DTb-5b-zP3">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
